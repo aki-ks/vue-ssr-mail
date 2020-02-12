@@ -42,6 +42,5 @@ const clientConfig = {
 }
 
 module.exports = {
-    outputDir: 'public',
     configureWebpack: process.env.TARGET_ENV === 'server' ? serverConfig : clientConfig
 }

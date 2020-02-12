@@ -6,7 +6,7 @@
     "build": "TARGET_ENV='server' vue-cli-service build --no-clean",
     "lint": "vue-cli-service lint",
     "build:client": "TARGET_ENV='client' vue-cli-service build --no-clean",
-    "start": "ts-node src/server/app.ts"
+    "start": "ts-node server/app.ts"
   },
   "dependencies": {
     "core-js": "^3.4.4",

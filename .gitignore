@@ -21,4 +21,4 @@ yarn-error.log*
 *.sw?
 
 # custom ignores
-/public/vue-ssr-server-bundle.json
+/dist/

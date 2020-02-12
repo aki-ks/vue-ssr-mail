@@ -1,8 +1,8 @@
-import { TemplateKind } from '@/email';
+import { TemplateKind } from '../src/email';
 import { createBundleRenderer } from 'vue-server-renderer';
-import mjml from 'mjml';
-import { SSRContext } from '@/main';
-const serverBundle = require('../../public/vue-ssr-server-bundle.json');
+import { SSRContext } from '../src/main';
+import mjml2html from 'mjml';
+const serverBundle = require('../dist/vue-ssr-server-bundle.json');
 
 const renderer = createBundleRenderer(serverBundle, {
   runInNewContext: false
@@ -26,7 +26,7 @@ export function renderPage (name: string, mode: TemplateKind, data: object): Pro
 }
 
 export function renderMjml(html: string) {
-  const result = mjml(html);
+  const result = mjml2html(html);
   if (result.errors && result.errors.length) {
     result.errors.forEach(e => console.error(e));
     throw new Error('Mjml compilation failed with errors');

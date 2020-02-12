@@ -1,13 +1,13 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import { Request, Response } from 'express-serve-static-core';
-import { TemplateKind } from '@/email';
+import { TemplateKind } from '../src/email';
 import { renderPage, renderMjml, renderAllTemplates } from './render';
 
 const port = 1919;
 
 express()
-  .use(express.static('public'))
+  .use('assets', express.static('assets'))
   .use(bodyParser.json())
   .get('/mail/:name', (req, res) => multiTemplateHandler(req, res))
   .get('/mail/:name/subject', (req, res) => rawHandler(req, res, 'subject'))
