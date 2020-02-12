@@ -57,7 +57,7 @@ function extractVariables (req: Request) {
       if (!obj[part]) {
         obj = obj[part] = {};
       } else {
-        obj = obj[part] = {};
+        obj = obj[part];
       }
     }
 
